@@ -5,7 +5,7 @@ import QuoteContent from "./components/QuoteContent";
 import ShareButtons from "./components/ShareButtons";
 import NewQuoteButton from "./components/NewQuoteButton";
 import CopyRight from "./components/CopyRight";
-import $ from "jquery";
+export const transition = "all 1s";
 
 function App() {
   const getRandomQuote = () =>
@@ -25,12 +25,11 @@ function App() {
     setNewColor(getRandomColor);
   };
 
-  $(document).ready(function () {
-    $("body").css("backgroundColor", color);
-  });
-
   return (
-    <>
+    <div
+      className="quote-container"
+      style={{ backgroundColor: color, transition }}
+    >
       <div className="quote">
         <QuoteContent quote={quote} color={color} />
         <div className="quote-btns">
@@ -39,7 +38,7 @@ function App() {
         </div>
       </div>
       <CopyRight />
-    </>
+    </div>
   );
 }
 

@@ -1,4 +1,5 @@
 import { FaTwitterSquare, FaTumblrSquare } from "react-icons/fa";
+import { transition } from "../App";
 
 function ShareButtons({ quote, color }) {
   const twitterShareText = `Check out this quote by ${quote.author}: "${quote.quote}"`;
@@ -13,7 +14,12 @@ function ShareButtons({ quote, color }) {
         className="quote-btns__share-btn"
       >
         <FaTwitterSquare
-          style={{ fill: color, width: "3rem", height: "auto" }}
+          style={{
+            fill: color,
+            width: "3rem",
+            height: "auto",
+            transition,
+          }}
         />
       </a>
       <a
@@ -29,7 +35,12 @@ function ShareButtons({ quote, color }) {
         className="quote-btns__share-btn"
       >
         <FaTumblrSquare
-          style={{ fill: color, width: "3rem", height: "auto" }}
+          style={{
+            fill: color,
+            width: "3rem",
+            height: "auto",
+            transition,
+          }}
         />
       </a>
     </div>

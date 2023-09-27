@@ -1,10 +1,32 @@
+// reset
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  // transition: all 3s;
 }
 
+// mixins
+@mixin bp($name) {
+  @if $name == sm {
+    @media (max-width: 576px) {
+      @content;
+    }
+  } @else if $name == md {
+    @media (max-width: 768px) {
+      @content;
+    }
+  } @else if $name == lg {
+    @media (max-width: 992px) {
+      @content;
+    }
+  } @else if $name == xl {
+    @media (max-width: 1200px) {
+      @content;
+    }
+  }
+}
+
+// other
 a,
 button {
   &:hover {
@@ -12,15 +34,16 @@ button {
   }
 }
 
-body {
-  height: 100vh;
+#root {
+  text-align: center;
+}
+
+.quote-container {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-#root {
-  text-align: center;
+  flex-direction: column;
+  height: 100vh;
 }
 .quote {
   background-color: white;
@@ -31,25 +54,51 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 2rem;
+  padding: 5%;
+  border-radius: 5px;
 
   &-content {
     text-align: right;
     font-family: "Raleway", sans-serif;
+    width: 100%;
 
     &__quote {
       text-align: center;
       font-size: 1.9rem;
       font-weight: 500;
+      @include bp(lg) {
+        font-size: 1.7rem;
+      }
+      @include bp(md) {
+        font-size: 1.5rem;
+      }
+      @include bp(sm) {
+        font-size: 1.3rem;
+      }
     }
     &__icon {
       margin-right: 0.8rem;
       font-size: 1.7rem;
+      @include bp(lg) {
+        font-size: 1.5rem;
+      }
+      @include bp(md) {
+        font-size: 1.3rem;
+      }
+      @include bp(sm) {
+        font-size: 1.1rem;
+      }
     }
     &__author {
       font-weight: 400;
-      margin-top: 1rem;
       display: inline-block;
+      margin-top: 2%;
+      @include bp(md) {
+        font-size: 0.9rem;
+      }
+      @include bp(sm) {
+        font-size: 0.8rem;
+      }
     }
   }
 
@@ -57,7 +106,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-self: stretch;
-    margin-top: 2rem;
+    margin-top: 4%;
 
     &__new-quote {
       font-weight: 400;
@@ -65,8 +114,9 @@ body {
       outline: none;
       cursor: pointer;
       color: white;
-      padding: 1rem;
+      padding-inline: 1rem;
       border-radius: 4px;
+      margin: 3px 0 7px;
       &:focus {
         outline: none;
       }
@@ -76,10 +126,18 @@ body {
 
 .copyright {
   display: inline-block;
-  margin-top: 1rem;
   color: white;
+
   &__link {
     color: inherit;
     text-decoration: none;
+    display: inline-block;
+    padding: 1rem 0;
+    @include bp(md) {
+      padding: 0.8rem 0;
+    }
+    @include bp(sm) {
+      padding: 0.6rem 0;
+    }
   }
 }
