@@ -30,7 +30,7 @@ function App() {
       className="quote-container"
       style={{ backgroundColor: color, transition }}
     >
-      <div className="quote">
+      <div className="quote" id="quote-box">
         <QuoteContent quote={quote} color={color} />
         <div className="quote-btns">
           <ShareButtons quote={quote} color={color} />

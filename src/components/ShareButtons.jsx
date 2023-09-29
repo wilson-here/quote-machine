@@ -12,6 +12,7 @@ function ShareButtons({ quote, color }) {
         target="_blank"
         rel="noopener noreferrer"
         className="quote-btns__share-btn"
+        id="tweet-quote"
       >
         <FaTwitterSquare
           style={{
