@@ -26,46 +26,73 @@
   }
 }
 
-// other
+// common
 a,
 button {
+  transition: opacity 0.3s;
   &:hover {
     opacity: 0.7;
   }
 }
 
+// main
 #root {
   text-align: center;
 }
 
+html {
+  font-family: "Space Grotesk", sans-serif;
+}
+
 .quote-container {
+  background-size: cover;
+  background-repeat: no-repeat;
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
   height: 100vh;
+  position: relative;
+  flex-wrap: wrap;
+  align-content: center;
+  &::before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+    background-color: rgba($color: #000000, $alpha: 0.3);
+  }
+}
+.quote,
+.copyright,
+.quote-btns,
+.quote-btns__new-quote,
+.quote-btns__save-as-wallpaper {
+  position: relative;
+  z-index: 1;
 }
 .quote {
-  background-color: white;
-  width: 90%;
-  max-width: 1200px;
+  width: 100%;
+  color: white;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 5%;
   border-radius: 5px;
+  margin-bottom: 2rem;
 
   &-content {
     text-align: right;
-    font-family: "Raleway", sans-serif;
-    width: 100%;
+    max-width: 700px;
+    width: 90%;
 
     &__quote {
       text-align: center;
       font-size: 1.9rem;
-      font-weight: 500;
+      font-weight: 400;
       @include bp(lg) {
         font-size: 1.7rem;
       }
@@ -103,23 +130,30 @@ button {
   }
 
   &-btns {
-    display: flex;
-    justify-content: space-between;
-    align-self: stretch;
-    margin-top: 4%;
-
+    display: inline-flex;
+    &__share {
+      display: flex;
+      gap: 1rem;
+    }
     &__new-quote {
-      font-weight: 400;
+      font-weight: 900;
       border: none;
       outline: none;
       cursor: pointer;
-      color: white;
-      padding-inline: 1rem;
       border-radius: 4px;
       margin: 3px 0 7px;
+      font-family: inherit;
+      font-size: inherit;
+      padding: 0.73rem;
+      margin-left: 1rem;
+      // make the cut out effect for text
+      color: #000;
+      mix-blend-mode: screen;
       &:focus {
         outline: none;
       }
+    }
+    &__save-as-wallpaper {
     }
   }
 }
@@ -127,12 +161,12 @@ button {
 .copyright {
   display: inline-block;
   color: white;
+  width: 100%;
 
   &__link {
     color: inherit;
-    text-decoration: none;
     display: inline-block;
-    padding: 1rem 0;
+    padding: 1.1rem 0;
     @include bp(md) {
       padding: 0.8rem 0;
     }
