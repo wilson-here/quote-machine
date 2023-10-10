@@ -46,6 +46,7 @@ html {
 
 .quote-container {
   background-size: cover;
+  background-position: center;
   background-repeat: no-repeat;
   display: flex;
   justify-content: center;
@@ -146,7 +147,7 @@ html {
       font-size: inherit;
       padding: 0.73rem;
       margin-left: 1rem;
-      // make the cut out effect for text
+      // make the cut out effect for text, kết hợp với việc element là con trực tiếp của phần tử có nền muốn xuyên thấu
       color: #000;
       mix-blend-mode: screen;
       &:focus {
