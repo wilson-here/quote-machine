@@ -1,4 +1,4 @@
-const API_KEY = "mK8jLLi2drg6U03QKb2WfGpknIIXMWVxFftRQbsJjAE"; // Replace with your actual API key
+const API_KEY = "qNaB51OISzxAAwDI-xiDHkTXvMdFU0qWAKWG8nB-elQ"; // Replace with your actual API key
 const UNSPLASH_API_URL = "https://api.unsplash.com/photos/random";
 const UNSPLASH_API_HEADERS = {
   Authorization: `Client-ID ${API_KEY}`,
